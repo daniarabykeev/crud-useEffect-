@@ -1,23 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import "./App.css";
+import MainRoute from "./routes/MainRoute";
 
 function App() {
+  const [phones, setPhones] = useState([]);
+  const [onePhone, setOnePhone] = useState(null);
+  const API = "http://localhost:8002/phones";
+
+  async function getData() {
+    const { data } = await axios(API);
+    setPhones(data);
+  }
+  useEffect(() => {
+    getData();
+  }, []);
+
+  async function addData(newComp) {
+    await axios.post(API, newComp);
+    getData();
+  }
+
+  async function deleteData(id) {
+    await axios.delete(`${API}/${id}`);
+    getData();
+  }
+
+  async function getOnePhone(id) {
+    const { data } = await axios(`${API}/${id}`);
+    setOnePhone(data);
+  }
+
+  async function editPhone(id, editedPhone) {
+    await axios.patch(`${API}/${id}`, editedPhone);
+    getData();
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <MainRoute
+        phones={phones}
+        addData={addData}
+        deleteData={deleteData}
+        getOnePhone={getOnePhone}
+        onePhone={onePhone}
+        editPhone={editPhone}
+      />
     </div>
   );
 }

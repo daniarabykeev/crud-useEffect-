@@ -1,0 +1,16 @@
+{
+  "phones": [
+    {
+      "image": "https://images.unsplash.com/photo-1664478711535-fd3cc5d1a99a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8aXBob25lJTIwMTQlMjBwcm8lMjBtYXh8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+      "title": "Iphone 14 pro max",
+      "price": "100",
+      "id": "1"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1575719362347-a70b129740e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fG1vYmlsZSUyMHBob25lc3xlbnwwfDB8MHx8&auto=format&fit=crop&w=800&q=60",
+      "title": "samsung",
+      "price": "200",
+      "id": "2"
+    }
+  ]
+}
